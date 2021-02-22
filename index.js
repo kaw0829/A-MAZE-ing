@@ -1,6 +1,3 @@
-import Fireworks from 'matter-fireworks';
-const fireworks = new Fireworks;
-
 const { Engine, Render, Runner, World, Bodies, Body, Events } = Matter;
 const height = (window.innerHeight-10);
 const width = window.innerWidth-10;
@@ -55,13 +52,14 @@ function shuffleArray(array) {
      }
      return array;
  }
-
+// generates an array of booleans representing wether cells have been visited
 function maze_generator(x, y)  {
     const grid = Array(y)
     .fill(null)
     .map(() => Array(x).fill(false));
     return grid;
 }
+// generates an array of booleans representing horizontal wall segments
 function horizontals_generator(x,y) {
     const hors = Array(y-1)
     .fill(null)
@@ -70,6 +68,7 @@ function horizontals_generator(x,y) {
 }
 const horizontals = (horizontals_generator(xmaze,ymaze))
 
+// generates an array of booleans representing vertical wall segments
 function verticals_generator(x,y) {
     const verts = Array(y)
     .fill(null)
@@ -121,9 +120,6 @@ function step_through_cell(row, column) {
         }
         step_through_cell(next_row,next_column)
     }
-}
-const move_through_cell = (row,column) => {
-    
 }
 
 //walls
